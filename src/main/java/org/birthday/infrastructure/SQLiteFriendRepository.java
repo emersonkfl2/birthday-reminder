@@ -9,12 +9,15 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 
+import static jakarta.persistence.Persistence.createEntityManagerFactory;
+
 public class SQLiteFriendRepository implements FriendRepository {
 
     private final EntityManager entityManager;
 
     public SQLiteFriendRepository(String persistenceUnitName) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
+        EntityManagerFactory entityManagerFactory =
+                createEntityManagerFactory(persistenceUnitName);
         entityManager = entityManagerFactory.createEntityManager();
     }
 

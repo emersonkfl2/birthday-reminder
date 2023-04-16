@@ -1,4 +1,4 @@
-package domain;
+package infrastructure;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -6,12 +6,14 @@ import org.birthday.domain.Friend;
 import org.birthday.infrastructure.SQLiteFriendRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class SQLiteFriendRepositoryTest {
     private SQLiteFriendRepository repository;
 

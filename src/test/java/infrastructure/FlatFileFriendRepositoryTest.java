@@ -4,6 +4,7 @@ import org.birthday.domain.Friend;
 import org.birthday.infrastructure.FlatFileFriendRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,6 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class FlatFileFriendRepositoryTest {
     private FlatFileFriendRepository repository;
 

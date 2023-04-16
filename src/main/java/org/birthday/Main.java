@@ -14,7 +14,7 @@ public class Main {
         FriendRepository friendRepository = new SQLiteFriendRepository("birthdayReminderPU");
         List<Friend> friends = friendRepository.findAll();
 
-        System.out.println("Getting friends from SQLite");
+        System.out.println("------------Getting friends from SQLite------------");
         for (Friend friend : friends) {
             System.out.println("Friend: " + friend.getFirstName() + " " + friend.getLastName() +
                     ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail());
@@ -24,7 +24,7 @@ public class Main {
         FriendRepository friendFileRepository = new FlatFileFriendRepository(Path.of("friends.txt"));
         List<Friend> friendsFile = friendFileRepository.findAll();
 
-        System.out.println("\nGetting friends from file");
+        System.out.println("\n------------Getting friends from file------------");
         for (Friend friend : friendsFile) {
             System.out.println("Friend: " + friend.getFirstName() + " " + friend.getLastName() +
                     ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail());
