@@ -6,43 +6,44 @@ import org.birthday.domain.FriendRepository;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FlatFileFriendRepository implements FriendRepository {
-    private String filePath;
 
-    public FlatFileFriendRepository(String filePath) {
-        this.filePath = filePath;
-    }
+    private static final String FILE_NAME = "friends.txt";
 
     @Override
     public List<Friend> findAll() {
         List<Friend> friends = new ArrayList<>();
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(Paths.get(FILE_NAME).toFile()))) {
             String line;
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split("\\s+");
-                if (tokens.length == 4) {
-                    String lastName = tokens[0];
-                    String firstName = tokens[1];
-                    LocalDate dateOfBirth = LocalDate.parse(tokens[2], dateFormatter);
-                    String email = tokens[3];
+            while ((line = reader.readLine()) != null) {
+                String[] friendData = line.split(",");
 
-                    Friend friend = new Friend(lastName, firstName, dateOfBirth, email);
-                    friends.add(friend);
+                if (friendData.length != 4) {
+                    System.err.println("Invalid data format: " + line);
+                    continue;
                 }
+                String lastName = friendData[0].trim();
+                String firstName = friendData[1].trim();
+                LocalDate dateOfBirth = LocalDate.parse(friendData[2].trim(), formatter);
+                String email = friendData[3].trim();
+
+                friends.add(new Friend(lastName, firstName, dateOfBirth, email));
             }
         } catch (IOException e) {
-            System.err.println("Error reading friends from flat file: " + e.getMessage());
+            System.err.println("Error reading friends.txt file: " + e.getMessage());
         }
 
         return friends;
     }
+
 }
 
 
