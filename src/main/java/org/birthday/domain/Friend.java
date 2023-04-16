@@ -3,6 +3,7 @@ package org.birthday.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Entity
@@ -30,7 +31,6 @@ public class Friend {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
     }
-
 
     public Friend() {
     }
@@ -65,6 +65,11 @@ public class Friend {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getFormattedDateOfBirth() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return dateOfBirth.format(formatter);
     }
 
     public String getEmail() {

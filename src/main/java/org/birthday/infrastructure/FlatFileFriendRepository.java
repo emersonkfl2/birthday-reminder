@@ -19,7 +19,7 @@ public class FlatFileFriendRepository implements FriendRepository {
     }
 
     @Override
-    public List<Friend> getFriends() {
+    public List<Friend> findAll() {
         List<Friend> friends = new ArrayList<>();
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 

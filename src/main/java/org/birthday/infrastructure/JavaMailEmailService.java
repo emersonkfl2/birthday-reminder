@@ -1,6 +1,8 @@
 package org.birthday.infrastructure;
 
 import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import org.birthday.domain.EmailService;
 
 import java.util.Properties;
@@ -25,7 +27,7 @@ public class JavaMailEmailService implements EmailService {
             }
         });
 
-/*        try {
+        try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
@@ -35,6 +37,6 @@ public class JavaMailEmailService implements EmailService {
             Transport.send(message);
         } catch (MessagingException e) {
             System.err.println("Error sending email: " + e.getMessage());
-        }*/
+        }
     }
 }
