@@ -162,3 +162,5 @@ buildNumber.properties
 .classpath
 
 # End
+birthday-reminder.iml
+.idea/aws.xml
