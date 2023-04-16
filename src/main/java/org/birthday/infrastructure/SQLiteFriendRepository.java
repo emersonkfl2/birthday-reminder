@@ -13,9 +13,13 @@ public class SQLiteFriendRepository implements FriendRepository {
 
     private final EntityManager entityManager;
 
-    public SQLiteFriendRepository() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("birthdayReminderPU");
+    public SQLiteFriendRepository(String persistenceUnitName) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
         entityManager = entityManagerFactory.createEntityManager();
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
     }
 
     @Override

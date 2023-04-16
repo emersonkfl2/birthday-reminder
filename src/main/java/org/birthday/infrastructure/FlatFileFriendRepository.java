@@ -6,6 +6,7 @@ import org.birthday.domain.FriendRepository;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -14,14 +15,19 @@ import java.util.List;
 
 public class FlatFileFriendRepository implements FriendRepository {
 
-    private static final String FILE_NAME = "friends.txt";
+
+    private final Path filePath;
+
+    public FlatFileFriendRepository(Path filePath) {
+        this.filePath = filePath;
+    }
 
     @Override
     public List<Friend> findAll() {
         List<Friend> friends = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(Paths.get(FILE_NAME).toFile()))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(Paths.get(filePath.toUri()).toFile()))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] friendData = line.split(",");
@@ -38,12 +44,9 @@ public class FlatFileFriendRepository implements FriendRepository {
                 friends.add(new Friend(lastName, firstName, dateOfBirth, email));
             }
         } catch (IOException e) {
-            System.err.println("Error reading friends.txt file: " + e.getMessage());
+            System.err.println("Error reading " + filePath + " file: " + e.getMessage());
         }
 
         return friends;
     }
-
 }
-
-
