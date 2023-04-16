@@ -1,4 +1,4 @@
-# birthday-reminder
+# Birthday Reminder API
 An API to send messages about your friends birthday
 
 First you have to install JDK 17(I'm using 17.0.6 - correto)
