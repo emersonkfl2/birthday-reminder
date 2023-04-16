@@ -14,7 +14,7 @@ public class Main {
         FriendRepository friendRepository = new SQLiteFriendRepository("birthdayReminderPU");
         List<Friend> friends = friendRepository.findAll();
 
-        System.out.println("------------Getting friends from SQLite------------");
+        System.out.println("\n------------Getting friends from SQLite------------");
         for (Friend friend : friends) {
             System.out.println("Friend: " + friend.getFirstName() + " " + friend.getLastName() +
                     ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail());
