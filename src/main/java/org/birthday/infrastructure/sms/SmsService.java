@@ -1,6 +1,8 @@
 package org.birthday.infrastructure.sms;
 
-public class SmsService {
+import org.birthday.domain.MessageSender;
+
+public class SmsService implements MessageSender {
 
     public void sendMessage(String toPhoneNumber, String subject, String message) {
         System.out.println("Number: " + toPhoneNumber);

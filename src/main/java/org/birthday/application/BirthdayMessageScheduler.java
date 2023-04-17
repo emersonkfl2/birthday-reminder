@@ -3,6 +3,7 @@ package org.birthday.application;
 import org.birthday.domain.Friend;
 import org.birthday.domain.FriendRepository;
 
+import java.time.Clock;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -10,24 +11,25 @@ public class BirthdayMessageScheduler {
 
     private final FriendRepository friendRepository;
     private final BirthdayMessageSender birthdayMessageSender;
+    private final Clock clock;
 
-    public BirthdayMessageScheduler(FriendRepository friendRepository, BirthdayMessageSender birthdayMessageSender) {
+    public BirthdayMessageScheduler(FriendRepository friendRepository, BirthdayMessageSender birthdayMessageSender, Clock clock) {
         this.friendRepository = friendRepository;
         this.birthdayMessageSender = birthdayMessageSender;
+        this.clock = clock;
     }
 
     public void run() {
-        LocalDate today = LocalDate.now();
+        LocalDate today = LocalDate.now(clock);
         List<Friend> friends = friendRepository.findAll();
+
+        Friend birthdayFriend = findFriendWithBirthdayToday(friends, today);
 
         for (Friend friend : friends) {
             if (isBirthday(today, friend.getDateOfBirth())) {
                 birthdayMessageSender.sendBirthdayMessage(friend);
-            } else {
-                Friend birthdayFriend = findFriendWithBirthdayToday(friends, today);
-                if (birthdayFriend != null) {
-                    birthdayMessageSender.sendBirthdayReminder(friend, birthdayFriend);
-                }
+            } else if (birthdayFriend != null) {
+                birthdayMessageSender.sendBirthdayReminder(friend, birthdayFriend);
             }
         }
     }

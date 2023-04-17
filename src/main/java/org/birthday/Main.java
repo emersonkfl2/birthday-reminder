@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        //Test JPA FriendRepository with SQLite
+        //Test the data in the SQLite database
         FriendRepository sqLiteRepository = new SQLiteFriendRepository("birthdayReminderPU");
         List<Friend> friends = sqLiteRepository.findAll();
 
@@ -21,7 +21,7 @@ public class Main {
                     + ", Phone Number: " + friend.getPhoneNumber());
         }
 
-        //Test FlatFile FriendRepository
+        //Test the data in the friends.txt file
         FriendRepository friendFileRepository = new FlatFileFriendRepository(Path.of("friends.txt"));
         List<Friend> friendsFile = friendFileRepository.findAll();
 
