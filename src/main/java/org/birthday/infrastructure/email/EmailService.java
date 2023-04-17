@@ -1,12 +1,13 @@
-package org.birthday.service;
+package org.birthday.infrastructure.email;
 
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import org.birthday.domain.MessageSender;
 
 import java.util.Properties;
 
-public class EmailService {
+public class EmailService implements MessageSender {
 
     private final String fromEmail;
     private final String fromEmailPassword;
@@ -16,7 +17,7 @@ public class EmailService {
         this.fromEmailPassword = fromEmailPassword;
     }
 
-    public void sendEmail(String toEmail, String subject, String body) {
+    public void sendMessage(String toEmail, String subject, String body) {
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
@@ -44,4 +45,5 @@ public class EmailService {
             throw new RuntimeException(e);
         }
     }
+
 }

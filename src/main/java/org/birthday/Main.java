@@ -4,10 +4,8 @@ import org.birthday.domain.Friend;
 import org.birthday.domain.FriendRepository;
 import org.birthday.infrastructure.FlatFileFriendRepository;
 import org.birthday.infrastructure.SQLiteFriendRepository;
-import org.birthday.service.EmailService;
 
 import java.nio.file.Path;
-import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
