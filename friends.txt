@@ -4,3 +4,4 @@ Tire,Mike,1986-05-06,mike.tire@foobar.com,555-123-4463
 Smith,Alice,1990-12-01,alice.smith@foobar.com,555-123-5564
 Brown,Emma,1988-07-15,emma.brown@foobar.com,555-123-4321
 Johnson,David,1992-02-28,david.johnson@foobar.com,555-123-5432
+Jobs,Steve,1955-04-17,steve.jobs@foobar.com,555-123-1111

@@ -1,36 +1,29 @@
 package org.birthday;
 
-import org.birthday.domain.Friend;
+import org.birthday.application.BirthdayMessageScheduler;
+import org.birthday.application.BirthdayMessageSender;
+import org.birthday.application.MessageComposer;
 import org.birthday.domain.FriendRepository;
+import org.birthday.domain.MessageSender;
+import org.birthday.infrastructure.ConsoleMessageSender;
 import org.birthday.infrastructure.FlatFileFriendRepository;
 import org.birthday.infrastructure.SQLiteFriendRepository;
 
 import java.nio.file.Path;
-import java.util.List;
+import java.time.Clock;
 
 public class Main {
     public static void main(String[] args) {
-        //Test the data in the SQLite database
-        FriendRepository sqLiteRepository = new SQLiteFriendRepository("birthdayReminderPU");
-        List<Friend> friends = sqLiteRepository.findAll();
+        // Choose the data source: SQLite database or flat text file
+        FriendRepository friendRepository = new SQLiteFriendRepository("birthdayReminderPU");
+        //FriendRepository friendRepository = new FlatFileFriendRepository(Path.of("friends.txt"));
 
-        System.out.println("\n------------Getting friends from SQLite------------");
-        for (Friend friend : friends) {
-            System.out.println("Friend: " + friend.getFirstName() + " " + friend.getLastName() +
-                    ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail()
-                    + ", Phone Number: " + friend.getPhoneNumber());
-        }
+        MessageSender consoleMessageSender = new ConsoleMessageSender();
+        MessageComposer messageComposer = new MessageComposer();
+        BirthdayMessageSender birthdayMessageSender = new BirthdayMessageSender(consoleMessageSender, consoleMessageSender, messageComposer);
+        BirthdayMessageScheduler scheduler = new BirthdayMessageScheduler(friendRepository, birthdayMessageSender, Clock.systemDefaultZone());
 
-        //Test the data in the friends.txt file
-        FriendRepository friendFileRepository = new FlatFileFriendRepository(Path.of("friends.txt"));
-        List<Friend> friendsFile = friendFileRepository.findAll();
-
-        System.out.println("\n------------Getting friends from file------------");
-        for (Friend friend : friendsFile) {
-            System.out.println("Friend: " + friend.getFirstName() + " " + friend.getLastName() +
-                    ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail()
-                    + ", Phone Number: " + friend.getPhoneNumber());
-        }
+        // Run the scheduler
+        scheduler.run();
     }
 }
-
