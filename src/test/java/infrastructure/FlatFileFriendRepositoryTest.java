@@ -19,9 +19,9 @@ class FlatFileFriendRepositoryTest {
 
     private List<Friend> createExpectedFriendList() {
         return List.of(
-                new Friend("Doe", "John", LocalDate.of(1982, 10, 8), "john.doe@foobar.com"),
-                new Friend("Ann", "Mary", LocalDate.of(1975, 9, 11), "mary.ann@foobar.com"),
-                new Friend("Tire", "Mike", LocalDate.of(1986, 5, 6), "mike.tire@foobar.com")
+                new Friend("Doe", "John", LocalDate.of(1982, 10, 8), "john.doe@foobar.com", "555-123-4556"),
+                new Friend("Ann", "Mary", LocalDate.of(1975, 9, 11), "mary.ann@foobar.com", "555-111-4457"),
+                new Friend("Tire", "Mike", LocalDate.of(1986, 5, 6), "mike.tire@foobar.com", "555-123-4463")
         );
     }
 

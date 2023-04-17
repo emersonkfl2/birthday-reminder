@@ -29,9 +29,9 @@ public class SQLiteFriendRepositoryTest {
         try {
             transaction.begin();
 
-            entityManager.persist(new Friend("Doe", "John", LocalDate.of(1982, 10, 8), "john.doe@foobar.com"));
-            entityManager.persist(new Friend("Ann", "Mary", LocalDate.of(1975, 9, 11), "mary.ann@foobar.com"));
-            entityManager.persist(new Friend("Tire", "Mike", LocalDate.of(1986, 5, 6), "mike.tire@foobar.com"));
+            entityManager.persist(new Friend("Doe", "John", LocalDate.of(1982, 10, 8), "john.doe@foobar.com", "555-123-4556"));
+            entityManager.persist(new Friend("Ann", "Mary", LocalDate.of(1975, 9, 11), "mary.ann@foobar.com", "555-111-4457"));
+            entityManager.persist(new Friend("Tire", "Mike", LocalDate.of(1986, 5, 6), "mike.tire@foobar.com", "555-123-4463"));
 
             transaction.commit();
         } catch (Exception e) {

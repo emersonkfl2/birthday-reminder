@@ -19,7 +19,8 @@ public class Main {
         System.out.println("\n------------Getting friends from SQLite------------");
         for (Friend friend : friends) {
             System.out.println("Friend: " + friend.getFirstName() + " " + friend.getLastName() +
-                    ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail());
+                    ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail()
+                    + ", Phone Number: " + friend.getPhoneNumber());
         }
 
         //Test FlatFile FriendRepository
@@ -29,31 +30,9 @@ public class Main {
         System.out.println("\n------------Getting friends from file------------");
         for (Friend friend : friendsFile) {
             System.out.println("Friend: " + friend.getFirstName() + " " + friend.getLastName() +
-                    ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail());
+                    ", Date of Birth: " + friend.getFormattedDateOfBirth() + ", Email: " + friend.getEmail()
+                    + ", Phone Number: " + friend.getPhoneNumber());
         }
-
-
-        String fromEmail = "your-email@gmail.com";
-        String fromEmailPassword = "your-email-password";
-        EmailService emailService = new EmailService(fromEmail, fromEmailPassword);
-
-        for (Friend friend : friends) {
-            if (isBirthdayToday(friend.getDateOfBirth())) {
-                String subject = "Happy Birthday!";
-                String body = "Dear " + friend.getFirstName() + ",\n\nHappy Birthday!\n\nBest wishes,\nBirthday Reminder";
-                emailService.sendEmail(friend.getEmail(), subject, body);
-            }
-        }
-
-    }
-    private static boolean isBirthdayToday(LocalDate dateOfBirth) {
-        LocalDate today = LocalDate.now();
-        if (today.getMonth() == dateOfBirth.getMonth() && today.getDayOfMonth() == dateOfBirth.getDayOfMonth()) {
-            return true;
-        } else
-            return today.getMonthValue() == 2 && today.getDayOfMonth() == 28 &&
-                    dateOfBirth.getMonthValue() == 2 && dateOfBirth.getDayOfMonth() == 29 &&
-                    !today.isLeapYear();
     }
 }
 

@@ -25,11 +25,15 @@ public class Friend {
     @Column(name = "email")
     private String email;
 
-    public Friend(String lastname, String firstname, LocalDate dateOfBirth, String email) {
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    public Friend(String lastname, String firstname, LocalDate dateOfBirth, String email, String phoneNumber) {
         this.lastName = lastname;
         this.firstName = firstname;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public Friend() {
@@ -80,16 +84,24 @@ public class Friend {
         this.email = email;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Friend friend = (Friend) o;
-        return Objects.equals(id, friend.id) && Objects.equals(lastName, friend.lastName) && Objects.equals(firstName, friend.firstName) && Objects.equals(dateOfBirth, friend.dateOfBirth) && Objects.equals(email, friend.email);
+        return Objects.equals(id, friend.id) && Objects.equals(lastName, friend.lastName) && Objects.equals(firstName, friend.firstName) && Objects.equals(dateOfBirth, friend.dateOfBirth) && Objects.equals(email, friend.email) && Objects.equals(phoneNumber, friend.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lastName, firstName, dateOfBirth, email);
+        return Objects.hash(id, lastName, firstName, dateOfBirth, email, phoneNumber);
     }
 }

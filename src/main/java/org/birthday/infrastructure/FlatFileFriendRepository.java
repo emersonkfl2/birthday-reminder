@@ -32,7 +32,7 @@ public class FlatFileFriendRepository implements FriendRepository {
             while ((line = reader.readLine()) != null) {
                 String[] friendData = line.split(",");
 
-                if (friendData.length != 4) {
+                if (friendData.length != 5) {
                     System.err.println("Invalid data format: " + line);
                     continue;
                 }
@@ -40,8 +40,9 @@ public class FlatFileFriendRepository implements FriendRepository {
                 String firstName = friendData[1].trim();
                 LocalDate dateOfBirth = LocalDate.parse(friendData[2].trim(), formatter);
                 String email = friendData[3].trim();
+                String phoneNumber = friendData[4].trim();
 
-                friends.add(new Friend(lastName, firstName, dateOfBirth, email));
+                friends.add(new Friend(lastName, firstName, dateOfBirth, email, phoneNumber));
             }
         } catch (IOException e) {
             System.err.println("Error reading " + filePath + " file: " + e.getMessage());

@@ -1,6 +1,6 @@
-Doe,John,1982-10-08,john.doe@foobar.com
-Ann,Mary,1975-09-11,mary.ann@foobar.com
-Tire,Mike,1986-05-06,mike.tire@foobar.com
-Smith,Alice,1990-12-01,alice.smith@foobar.com
-Brown,Emma,1988-07-15,emma.brown@foobar.com
-Johnson,David,1992-02-28,david.johnson@foobar.com
+Doe,John,1982-10-08,john.doe@foobar.com,555-123-4556
+Ann,Mary,1975-09-11,mary.ann@foobar.com,555-111-4457
+Tire,Mike,1986-05-06,mike.tire@foobar.com,555-123-4463
+Smith,Alice,1990-12-01,alice.smith@foobar.com,555-123-5564
+Brown,Emma,1988-07-15,emma.brown@foobar.com,555-123-4321
+Johnson,David,1992-02-28,david.johnson@foobar.com,555-123-5432
