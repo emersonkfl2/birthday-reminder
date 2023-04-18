@@ -37,13 +37,13 @@ The output will show two messages, the first is an email message and the second 
 Subject: Birthday Reminder  
 Message: Dear David,  
 Today is steve jobs's birthday.  
-Don't forget to send them a message!  
+Don't forget to send him a message!  
 "---------------------------------------------------"
 >Recipient: 555-123-5432  
 Subject: Birthday Reminder  
 Message: Dear David,  
 Today is steve jobs's birthday.  
-Don't forget to send them a message!  
+Don't forget to send him a message!  
 "---------------------------------------------------"
 Recipient: steve.jobs@foobar.com  
 Subject: Happy birthday!  
