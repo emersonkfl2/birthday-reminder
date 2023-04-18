@@ -17,6 +17,6 @@ public class MessageComposer {
     public String composeReminderMessage(String firstName, String someoneElseFirstName, String someoneElseLastName) {
         return "Dear " + firstName + ",\n" +
                 "Today is " + someoneElseFirstName + " " + someoneElseLastName + "'s birthday.\n" +
-                "Don't forget to send them a message!";
+                "Don't forget to send him a message!";
     }
 }
