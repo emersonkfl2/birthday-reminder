@@ -45,11 +45,11 @@ Message: Dear David,
 Today is steve jobs's birthday.  
 Don't forget to send him a message!  
 "---------------------------------------------------"
-Recipient: steve.jobs@foobar.com  
+>Recipient: steve.jobs@foobar.com  
 Subject: Happy birthday!  
 Message: Happy birthday, dear steve!  
 "---------------------------------------------------"
-Recipient: 555-123-1111  
+>Recipient: 555-123-1111  
 Subject: Happy birthday!  
 Message: Happy birthday, dear steve!  
 "---------------------------------------------------"
