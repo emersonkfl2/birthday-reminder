@@ -25,7 +25,7 @@ In this case you must create a connection with friends database file, located in
 `INSERT INTO friends (last_name, first_name, date_of_birth, email, phone_number)  
 VALUES ('jobs', 'steve', '1955-04-17', 'steve.jobs@foobar.com', '555-123-1111');`  
   
-- **Note**: If you want to see the outputs with the messages, insert a friend and put his birthday in you current day.  
+- **Note**: If you want to see the outputs with the messages, you can change a friend's birthday to the current day or insert a friend and put his birthday in your current day.  
 Look at this example, inserting a friend in the friends.txt file:  
 Jobs,Steve,1955-04-17,steve.jobs@foobar.com,555-123-1111  
   - [ ] Now run the command bellow:  
