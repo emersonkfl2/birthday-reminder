@@ -41,7 +41,7 @@ class MessageComposerTest {
         String someoneElseLastName = "Doe";
         String expectedMessage = "Dear Jane,\n" +
                 "Today is John Doe's birthday.\n" +
-                "Don't forget to send them a message!";
+                "Don't forget to send him a message!";
         assertEquals(expectedMessage, messageComposer.composeReminderMessage(firstName, someoneElseFirstName, someoneElseLastName));
     }
 }

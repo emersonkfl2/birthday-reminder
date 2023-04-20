@@ -36,25 +36,25 @@ The output will show two messages, the first is an email message and the second 
 >Recipient: david.johnson@foobar.com  
 Subject: Birthday Reminder  
 Message: Dear David,  
-Today is steve jobs's birthday.  
+Today is Steve Jobs birthday.  
 Don't forget to send him a message!  
 "---------------------------------------------------"
 
 >Recipient: 555-123-5432  
 Subject: Birthday Reminder  
 Message: Dear David,  
-Today is steve jobs's birthday.  
+Today is Steve Jobs birthday.  
 Don't forget to send him a message!  
 "---------------------------------------------------"
 
 >Recipient: steve.jobs@foobar.com  
 Subject: Happy birthday!  
-Message: Happy birthday, dear steve!  
+Message: Happy birthday, dear Steve!  
 "---------------------------------------------------"
 
 >Recipient: 555-123-1111  
 Subject: Happy birthday!  
-Message: Happy birthday, dear steve!  
+Message: Happy birthday, dear Steve!  
 "---------------------------------------------------"
   
 ## Running Tests  

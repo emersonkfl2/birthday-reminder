@@ -49,7 +49,7 @@ class BirthdayMessageSenderTest {
         String subject = "Birthday Reminder";
         String message = "Dear Jane,\n" +
                 "Today is John Smith's birthday.\n" +
-                "Don't forget to send them a message!";
+                "Don't forget to send him a message!";
         //Ann,Mary,1975-09-11,mary.ann@foobar.com,555-111-4457
         when(messageComposer.composeReminderSubject()).thenReturn(subject);
         when(messageComposer.composeReminderMessage(friend.getFirstName(), birthdayFriend.getFirstName(), birthdayFriend.getLastName())).thenReturn(message);
